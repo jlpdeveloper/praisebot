@@ -1,24 +1,18 @@
 {
-  "name": "bolt-app-template",
-  "version": "0.0.1",
-  "description": "A basic template to spin up a Bolt app for Slack",
+  "name": "praisebot",
+  "version": "1.0.1",
+  "description": "A basic bot for sending shoutouts on slack",
   "main": "app.js",
   "scripts": {
     "start": "node app.js"
   },
   "dependencies": {
-    "@slack/bolt": "^1.6.0"
+    "@slack/bolt": "^3.12.1"
   },
   "engines": {
-    "node": "11.x"
+    "node": "14.x"
   },
-  "repository": {
-    "url": "https://glitch.com/edit/#!/bolt-app-template"
-  },
-  "license": "MIT",
-  "keywords": [
-    "node",
-    "glitch",
-    "express"
-  ]
+
+  "license": "MIT"
+ 
 }
