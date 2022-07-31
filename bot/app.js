@@ -4,7 +4,7 @@ const shoutout = require('./slash-shoutout');
 const app = require('./app.module');
 
 // Listen for a slash command invocation
-app.command('/helloworld', shoutout.slash); 
+app.command('/shoutout', shoutout.slash); 
 
 app.event('message', async({ event, client, context }) => {
   //console.log(event);
