@@ -19,7 +19,7 @@ The App home page will show recent shoutouts (~last 10?) for the user that opens
 ### `/shoutout` 
 ---
 ***Aliases: `/praise`***
-**Inputs:** the `@username` for a user to shoutout
+Creates an interactive message with the user, prompting them to select the user to shout out and provide a message
 
 **Response:** Reply asking for details on what the shoutout is about
 
