@@ -6,7 +6,7 @@ let shoutStore = {};
 
 shoutout.slash = async ({ ack, payload, context }) => {
   // Acknowledge the command request
-  ack();
+  await ack();
   try {
     await app.client.chat.postEphemeral({
       token: context.botToken,
@@ -40,7 +40,7 @@ shoutout.slash = async ({ ack, payload, context }) => {
 };
 
 shoutout.recongition_event = async ({ ack, body, context }) => {
-  ack();
+  await ack();
   try {
     await app.client.chat.postEphemeral({
       token: context.botToken,
@@ -78,7 +78,7 @@ shoutout.recongition_event = async ({ ack, body, context }) => {
 
 shoutout.user_select_action = async ({ ack, body, context }) => {
   // Acknowledge the button request
-  ack();
+  await ack();
   try {
     shoutStore[body.user.id] = {
       selected_user: body.actions[0].selected_user,
