@@ -1,43 +1,10 @@
 // Require the Bolt package (github.com/slackapi/bolt)
-
 const shoutout = require('./slash-shoutout');
 const app = require('./app.module');
-
 // Listen for a slash command invocation
 app.command('/shoutout', shoutout.slash); 
-
-app.event('message', async({ event, client, context }) => {
-  //console.log(event);
-  try {
-    const result = await app.client.chat.postMessage({
-      token: context.botToken,
-      // Channel to send message to
-      channel: event.channel,
-      // Include a button in the message (or whatever blocks you want!)
-      blocks: [
-        {
-          type: 'section',
-          text: {
-            type: 'mrkdwn',
-            text: 'Echo:' + event.text
-          },
-        
-        }
-      ],
-      // Text in the notification
-      text: 'Message from Test App'
-    });
-     }
-  catch (error) {
-    console.error(error);
-  }
-});
 app.action('recognize-details-action', shoutout.recongition_event);
-
 app.action('users_select-shoutout-action', shoutout.user_select_action);
-
-
-// All the room in the world for your code
 
 app.event('app_home_opened', async ({ event, client, context }) => {
   try {
@@ -95,6 +62,5 @@ app.event('app_home_opened', async ({ event, client, context }) => {
 (async () => {
   // Start your app
   await app.start(process.env.PORT || 3000);
-
   console.log('⚡️ Bolt app is running!');
 })();
