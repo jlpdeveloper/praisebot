@@ -1,6 +1,11 @@
 # Praisebot - an open source shoutout slack bot
 This bot was designed to gain a basic understanding how bolt slack bots work!
 
+## Todo
+- Setup a cron job and get a weekly report
+- Possibly setup a slash command for report
+- Setup terraform code to make dynamo, ecs service
+- Add code that will add data to dynamodb
 
 ## Installation Instructions
 
