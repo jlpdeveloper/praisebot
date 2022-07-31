@@ -32,74 +32,9 @@ app.event('message', async({ event, client, context }) => {
     console.error(error);
   }
 });
-app.action('recognize-details-action', async({ack, body, context}) =>{
-  ack();
-  console.log(body);
-  try{
-      const result = await app.client.chat.update({
-      token: context.botToken,
-      // ts of message to update
-      ts: body.message.ts,
-      // Channel of message
-      channel: body.channel.id,
-      blocks: [
-      {
-			"type": "section",
-			"text": {
-				"type": "plain_text",
-				"text": "Great! We'll post this to the #shoutouts channel!",
-				"emoji": true
-			}
-		
-		}
-      ],
-      //text: body.actions[0].selected_user
-   
-    });
-  }
-  catch(error){
-    throw error;
-  }
-});
-// Listen for a button invocation with action_id `button_abc`
-// You must set up a Request URL under Interactive Components on your app configuration page
-app.action('users_select-shoutout-action', async ({ ack, body, context }) => {
-  // Acknowledge the button request
-  ack();
- // console.log(body)
+app.action('recognize-details-action', shoutout.recongition_event);
 
-   try {
-     // Update the message
-    const result = await app.client.chat.update({
-      token: context.botToken,
-      // ts of message to update
-      ts: body.message.ts,
-      // Channel of message
-      channel: body.channel.id,
-      blocks: [
-       {
-			"dispatch_action": true,
-			"type": "input",
-			"element": {
-				"type": "plain_text_input",
-				"action_id": "recognize-details-action"
-			},
-			"label": {
-				"type": "plain_text",
-				"text": "What did they help you with?",
-				"emoji": true
-			}
-		}
-      ],
-      text: body.actions[0].selected_user
-   
-    });
-   // console.log(result); 
-   }
-  catch (error) {
-    console.error(error);
-  }
-});
+app.action('users_select-shoutout-action', shoutout.user_select_action);
 
 
 // All the room in the world for your code
