@@ -1,4 +1,6 @@
 const app = require('./app.module');
+const userUtility = require('./utilities/user.utility');
+const shoutoutChannelUtil = require('./utilities/shoutout.channel.utility');
 let shoutout = {};
 
 
@@ -43,7 +45,7 @@ shoutout.slash = async  ({ ack, payload, context }) => {
 
   shoutout.recongition_event = async({ack, body, context}) =>{
     ack();
-    console.log(body);
+    //console.log(body);
     try{
         const result = await app.client.chat.update({
         token: context.botToken,
@@ -65,6 +67,12 @@ shoutout.slash = async  ({ ack, payload, context }) => {
         //text: body.actions[0].selected_user
      
       });
+      //console.log(body.message.text);
+      var userInfo = await userUtility.getUserById(body.message.text);
+     
+      //console.log(userInfo.name, body.user.name);
+      await shoutoutChannelUtil.postShoutoutMessage(body.user.name, userInfo.name, body.actions[0].value);
+
     }
     catch(error){
       throw error;
