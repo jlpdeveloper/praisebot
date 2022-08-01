@@ -1,0 +1,136 @@
+{
+  "ModelName": "Shoutout",
+  "ModelMetadata": {
+    "Author": "Josh Potts",
+    "DateCreated": "Jul 30, 2022, 08:46 PM",
+    "DateLastModified": "Jul 31, 2022, 07:33 PM",
+    "Description": "Shoutout record for a user",
+    "AWSService": "Amazon DynamoDB",
+    "Version": "3.0"
+  },
+  "DataModel": [
+    {
+      "TableName": "Praisebot",
+      "KeyAttributes": {
+        "PartitionKey": {
+          "AttributeName": "userId",
+          "AttributeType": "S"
+        },
+        "SortKey": {
+          "AttributeName": "createdOn",
+          "AttributeType": "N"
+        }
+      },
+      "NonKeyAttributes": [
+        {
+          "AttributeName": "message",
+          "AttributeType": "S"
+        },
+        {
+          "AttributeName": "userName",
+          "AttributeType": "S"
+        },
+        {
+          "AttributeName": "createdBy",
+          "AttributeType": "S"
+        },
+        {
+          "AttributeName": "createdByUserId",
+          "AttributeType": "S"
+        }
+      ],
+      "TableData": [
+        {
+          "userId": {
+            "S": "W012A3CDE"
+          },
+          "createdOn": {
+            "N": "1659313523463"
+          },
+          "message": {
+            "S": "helped with SQL"
+          },
+          "userName": {
+            "S": "hank.hill"
+          },
+          "createdBy": {
+            "S": "dale.gribble"
+          },
+          "createdByUserId": {
+            "S": "W07QCRPA4"
+          }
+        },
+        {
+          "userId": {
+            "S": "W07QCRPA4"
+          },
+          "createdOn": {
+            "N": "1659313661578"
+          },
+          "message": {
+            "S": "helped with docker"
+          },
+          "userName": {
+            "S": "dale.gribble"
+          },
+          "createdBy": {
+            "S": "bill.dautrieve"
+          },
+          "createdByUserId": {
+            "S": "W04DPR32D"
+          }
+        },
+        {
+          "userId": {
+            "S": "W012A3CDE"
+          },
+          "createdOn": {
+            "N": "1659313799614"
+          },
+          "message": {
+            "S": "helped c# issue"
+          },
+          "userName": {
+            "S": "hank.hill"
+          },
+          "createdBy": {
+            "S": "bill.dautrieve"
+          },
+          "createdByUserId": {
+            "S": "W04DPR32D"
+          }
+        }
+      ],
+      "DataAccess": {
+        "MySql": {}
+      },
+      "BillingMode": "PROVISIONED",
+      "ProvisionedCapacitySettings": {
+        "ProvisionedThroughput": {
+          "ReadCapacityUnits": 5,
+          "WriteCapacityUnits": 5
+        },
+        "AutoScalingRead": {
+          "ScalableTargetRequest": {
+            "MinCapacity": 1,
+            "MaxCapacity": 10,
+            "ServiceRole": "AWSServiceRoleForApplicationAutoScaling_DynamoDBTable"
+          },
+          "ScalingPolicyConfiguration": {
+            "TargetValue": 70
+          }
+        },
+        "AutoScalingWrite": {
+          "ScalableTargetRequest": {
+            "MinCapacity": 1,
+            "MaxCapacity": 10,
+            "ServiceRole": "AWSServiceRoleForApplicationAutoScaling_DynamoDBTable"
+          },
+          "ScalingPolicyConfiguration": {
+            "TargetValue": 70
+          }
+        }
+      }
+    }
+  ]
+}
