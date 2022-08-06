@@ -8,7 +8,9 @@
   },
   "dependencies": {
     "@aws-sdk/client-dynamodb": "^3.142.0",
-    "@slack/bolt": "^3.12.1"
+    "@slack/bolt": "^3.12.1",
+    "luxon": "^3.0.1",
+    "node-cron": "^3.0.1"
   },
   "engines": {
     "node": "14.x"
