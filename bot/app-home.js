@@ -7,7 +7,7 @@ let appHome = async ({ event, client, context }) => {
             "type": "section",
             "text": {
                 "type": "mrkdwn",
-                "text": "*Welcome to your _Praisebot!_* :tada:"
+                "text": "*Welcome to your _Praisebot!_* :tada:\n\nThese are shoutouts to you in the past two weeks!"
             }
         }];
         shoutOuts.forEach(shout => {
