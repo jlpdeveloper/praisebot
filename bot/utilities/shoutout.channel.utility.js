@@ -1,4 +1,5 @@
 const app = require('../app.module');
+const dynamo = require('./dynamodb.utility');
 let utility = {};
 let conversationsStore = {};
 
@@ -17,6 +18,7 @@ utility.getChannel = async() =>{
 utility.postShoutoutMessage = async (createdBy, user, message) =>{
   try {
     var channel_id = await utility.getChannel();
+    await dynamo.addShoutout(user, createdBy, message);
     const result = await app.client.chat.postMessage({
       token: process.env.SLACK_BOT_TOKEN,
       // Channel to send message to
@@ -30,7 +32,7 @@ utility.postShoutoutMessage = async (createdBy, user, message) =>{
           "type": "section",
           "text": {
             "type": "mrkdwn",
-            "text": "*:star:Shoutout to <@"+ user +">*:star:\n_By <@"+ createdBy +">_\n For: " + message
+            "text": "*:star:Shoutout to <@"+ user.name +">*:star:\n_By <@"+ createdBy.name +">_\n For: " + message
           },
           
         },
