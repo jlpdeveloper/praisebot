@@ -29,19 +29,20 @@ dynamo.addShoutout = async (user, createdBy, recognitionmessage) => {
 
 }
 
-dynamo.getShoutoutSince = async (lastReportDate) => {
+dynamo.getLastWeekOfShoutouts = async () => {
+  var oneWeekAgo = DateTime.now().minus({weeks: 1}).toUnixInteger();
   const params = {
     KeyConditionExpression: "createdOn >= :s",
     IndexName: 'CreatedOnIndex',
     ExpressionAttributeValues: {
-      ":s": { N: lastReportDate.getTime().toString() },
+      ":s": { N: oneWeekAgo.toString() },
      
     },
     
     TableName: "Praisebot",
   };
   const data = await client.send(new QueryCommand(params));
-  return data;
+  return data.Items;
 }
 
 dynamo.getShoutoutsForUser = async (userId) => {
