@@ -66,8 +66,8 @@ shoutout.recongition_event = async ({ ack, body, context }) => {
     );
 
     await shoutoutChannelUtil.postShoutoutMessage(
-      body.user.name,
-      userInfo.name,
+      body.user,
+      userInfo,
       body.actions[0].value
     );
     delete shoutStore[body.user.id];
