@@ -14,6 +14,10 @@ resource "aws_dynamodb_table" "praisebot" {
     name = "createdOn"
     type = "N"
   }
+   attribute {
+    name = "weekStart"
+    type = "N"
+  }
   server_side_encryption {
     enabled = true
   }
@@ -24,5 +28,15 @@ resource "aws_dynamodb_table" "praisebot" {
     read_capacity      = 20
     projection_type    = "ALL"
   }
+
+  global_secondary_index {
+    name               = "WeeklyIndex"
+    hash_key           = "weekStart"
+    write_capacity     = 20
+    read_capacity      = 20
+    projection_type    = "ALL"
+  }
+
+  
 
 }
