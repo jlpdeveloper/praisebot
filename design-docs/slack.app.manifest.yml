@@ -13,6 +13,10 @@ features:
       url: {{yoururl}}/slack/events
       description: Shoutout Someone!
       should_escape: false
+    - command: /mvps
+      url: {{yoururl}}/slack/events
+      description: Get a report of your mvps over the past week!
+      should_escape: false
 oauth_config:
   scopes:
     bot:

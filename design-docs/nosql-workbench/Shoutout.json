@@ -3,7 +3,7 @@
   "ModelMetadata": {
     "Author": "Josh Potts",
     "DateCreated": "Jul 30, 2022, 08:46 PM",
-    "DateLastModified": "Jul 31, 2022, 07:33 PM",
+    "DateLastModified": "Aug 07, 2022, 09:31 PM",
     "Description": "Shoutout record for a user",
     "AWSService": "Amazon DynamoDB",
     "Version": "3.0"
@@ -37,6 +37,24 @@
         {
           "AttributeName": "createdByUserId",
           "AttributeType": "S"
+        },
+        {
+          "AttributeName": "weekStart",
+          "AttributeType": "N"
+        }
+      ],
+      "GlobalSecondaryIndexes": [
+        {
+          "IndexName": "WeeklyIndex",
+          "KeyAttributes": {
+            "PartitionKey": {
+              "AttributeName": "weekStart",
+              "AttributeType": "N"
+            }
+          },
+          "Projection": {
+            "ProjectionType": "ALL"
+          }
         }
       ],
       "TableData": [
