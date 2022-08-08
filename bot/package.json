@@ -1,18 +1,19 @@
 {
   "name": "praisebot",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A basic bot for sending shoutouts on slack",
   "main": "app.js",
   "scripts": {
     "start": "node app.js"
   },
   "dependencies": {
-    "@slack/bolt": "^3.12.1"
+    "@aws-sdk/client-dynamodb": "^3.142.0",
+    "@slack/bolt": "^3.12.1",
+    "luxon": "^3.0.1",
+    "node-cron": "^3.0.1"
   },
   "engines": {
     "node": "14.x"
   },
-
   "license": "MIT"
- 
 }
