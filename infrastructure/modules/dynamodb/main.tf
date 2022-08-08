@@ -21,13 +21,6 @@ resource "aws_dynamodb_table" "praisebot" {
   server_side_encryption {
     enabled = true
   }
-  global_secondary_index {
-    name               = "CreatedOnIndex"
-    hash_key           = "createdOn"
-    write_capacity     = 20
-    read_capacity      = 20
-    projection_type    = "ALL"
-  }
 
   global_secondary_index {
     name               = "WeeklyIndex"
