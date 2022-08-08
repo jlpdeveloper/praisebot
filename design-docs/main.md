@@ -18,9 +18,16 @@ The App home page will show recent shoutouts (~last 10?) for the user that opens
 
 ### `/shoutout` 
 ---
-***Aliases: `/praise`***
+
 Creates an interactive message with the user, prompting them to select the user to shout out and provide a message
 
 **Response:** Reply asking for details on what the shoutout is about
 
 **Actions:** This will store the username, date as ticks, details on shoutout and who did shoutout in a dynamo db
+
+
+### `/mvps`
+---
+
+Shows a report in the shoutout channel since the start of the week
+**Actions:** This will make a top 5 mvps report in the shoutout channel since the start of the week based on the America/New_York Time zone.

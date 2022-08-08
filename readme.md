@@ -2,10 +2,10 @@
 This bot was designed to gain a basic understanding how bolt slack bots work!
 
 ## Todo
-- Setup a cron job and get a weekly report
-- Possibly setup a slash command for report
-- Setup terraform code to make dynamo, ecs service
-- Add code that will add data to dynamodb
+- Setup terraform code to make ecs service
+- Machine learning that will identifiy tech keywords and provide pain problem areas report?
+- User directory redirect link
+
 
 ## Installation Instructions
 
