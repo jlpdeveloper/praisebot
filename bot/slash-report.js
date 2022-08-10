@@ -33,7 +33,7 @@ report.slash = async ({ ack, payload, context }) => {
     await ack();
     try {
         console.log('attempting slash command');
-        var startOfWeek = DateTime.now().setZone('America/New_York').startOf('week').toUnixInteger();
+        var startOfWeek = DateTime.now().setZone(process.env.TIMEZONE).startOf('week').toUnixInteger();
         await report.postReport(startOfWeek);
     } catch (error) {
         console.log(error);

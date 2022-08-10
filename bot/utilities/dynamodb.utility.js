@@ -6,7 +6,7 @@ let client = new DynamoDBClient({ region: 'us-east-1' });
 
 dynamo.addShoutout = async (user, createdBy, recognitionmessage) => {
   try {
-   var now = DateTime.now().setZone('America/New_York');
+   var now = DateTime.now().setZone(process.env.TIMEZONE);
     var item = {
       TableName: 'Praisebot',
       Item: {
