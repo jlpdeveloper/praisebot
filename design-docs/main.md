@@ -30,4 +30,4 @@ Creates an interactive message with the user, prompting them to select the user 
 ---
 
 Shows a report in the shoutout channel since the start of the week
-**Actions:** This will make a top 5 mvps report in the shoutout channel since the start of the week based on the America/New_York Time zone.
+**Actions:** This will make a top 5 mvps report in the shoutout channel since the start of the week based on the time zone passed in as the `TIMEZONE` environment parameter.

@@ -7,11 +7,11 @@ var cron = require('node-cron');
 const { DateTime } = require("luxon");
 
 cron.schedule('0 0 16 * * 1', () => {
-  var startOfWeek = DateTime.now().setZone('America/New_York').minus({days:1}).startOf('week').toUnixInteger();
+  var startOfWeek = DateTime.now().setZone(process.env.TIMEZONE).minus({days:1}).startOf('week').toUnixInteger();
   report.postReport(startOfWeek);
 }, {
   scheduled: true,
-  timezone: "America/New_York"
+  timezone: process.env.TIMEZONE
 });
 // Listen for a slash command invocation
 app.command('/shoutout', shoutout.slash); 
