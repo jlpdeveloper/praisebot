@@ -4,3 +4,5 @@ node_modules
 *.hcl
 *.tfstate
 *.tfstate.backup
+*.tfvars
+*.tfvars.json
