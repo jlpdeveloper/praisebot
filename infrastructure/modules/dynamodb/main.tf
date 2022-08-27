@@ -30,6 +30,8 @@ resource "aws_dynamodb_table" "praisebot" {
     projection_type    = "ALL"
   }
 
-  
+   tags = {
+    "service" = "praisebot"
+  }
 
 }

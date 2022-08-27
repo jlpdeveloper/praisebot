@@ -2,7 +2,6 @@
 This bot was designed to gain a basic understanding how bolt slack bots work!
 
 ## Todo
-- Setup terraform code to make ecs service
 - Machine learning that will identifiy tech keywords and provide pain problem areas report?
 - User directory redirect link
 
@@ -19,4 +18,31 @@ This bot was designed to gain a basic understanding how bolt slack bots work!
 
 
 ### Create the slack bot server
-*TODO*
+1. Create a `terraform.tfvars` file with the following variables
+   ```
+        ecs_cluster = "your cluster arn"
+        vpc         = "your vpcid"
+        vpc_cidr    = "your vpc CIDR"
+        subnets     = ["subnets for your service"]
+        environment_variables = [
+        {
+            "name" : "SLACK_BOT_TOKEN",
+            "value" : "your slack bot token "
+        },
+        {
+            "name" : "SLACK_SIGNING_SECRET",
+            "value" : "your signing secret"
+        },
+        {
+            "name" : "TIMEZONE",
+            "value" : "America/New_York"
+        }
+
+
+        ]
+   ```
+2. Grab the ecs cluster arn, vpc, etc from AWS
+3. Grab the Signing Secret from App Credentials in slack api
+4. Create a slack bot token
+5. Add those to the terraform variables
+6. Use terraform to deploy (you can use the default docker image or create your own)
