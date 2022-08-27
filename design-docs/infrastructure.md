@@ -14,3 +14,4 @@ An IAM role will be needed for the ECS cluster service that will also allow acce
 ## Docker Environment Variables
 - SLACK_BOT_TOKEN
 - SLACK_SIGNING_SECRET
+- TIMEZONE
