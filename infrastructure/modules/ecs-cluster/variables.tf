@@ -20,7 +20,7 @@ variable "subnets" {
 variable "docker_image" {
   type        = string
   description = "The Docker image to use when creating the service"
-  default     = "value"
+  default     = "pottsman482/praisebot:v1.0.3"
 }
 variable "environment_variables" {
 
